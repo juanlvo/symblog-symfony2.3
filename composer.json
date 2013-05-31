@@ -1,0 +1,6 @@
+{
+    "required" : {
+        "monolog/monolog": ">=1.0.0",
+        "doctrine/doctrine-migrations-bundle": "dev-master"
+    }
+}
