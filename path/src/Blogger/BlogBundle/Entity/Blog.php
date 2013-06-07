@@ -305,7 +305,7 @@ class Blog
         $this->comments->removeElement($comments);
     }
     
-    protected function slugify($text)
+    public function slugify($text)
     {
         // sustituye caracteres de espaciado o dígitos con un -
         $text = preg_replace('#[^\\pL\d]+#u', '-', $text);
