@@ -8,6 +8,7 @@ namespace Blogger\BlogBundle\Entity;
  * @author juanlvo
  */
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * @ORM\Entity(repositoryClass="Blogger\BlogBundle\Repository\BlogRepository")
@@ -58,10 +59,19 @@ class Blog
      */
     protected $updated;
     
-    protected $comments = array();
+    /**
+     * @ORM\OneToMany(targetEntity="Comment", mappedBy="blog")
+     */
+    protected $comments;
+    
+    /**
+     * @ORM\Column(type="string")
+     */
+    protected $slug;    
 
     public function __construct()
     {
+        $this->comments = new ArrayCollection();        
         $this->setCreated(new \DateTime());
         $this->setUpdated(new \DateTime());
     }
@@ -257,6 +267,10 @@ class Blog
     {
         return $this->updated;
     }
-    
+
+    public function __toString()
+    {
+        return $this->getTitle();
+    }    
 
 }

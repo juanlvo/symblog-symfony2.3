@@ -12,4 +12,5 @@ parameters:
     locale: en
     secret: a7fe474632016d7a09d70d4bcdaab1fab6d4b55a
     database_path: null
+    blogger_blog.comments.latest_comment_limit: 10    
 
